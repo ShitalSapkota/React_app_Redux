@@ -1,15 +1,17 @@
 import { createAsyncThunk, createSlice } from "@reduxjs/toolkit";
 import axios from "axios";
-import {type Product } from "../../types/types";
+import { type Product } from "../../types/types";
 
 interface ProductsState {
   products: Product[];
-  loading: boolean;
+  status: "idle" | "loading" | "succeeded" | "failed";
+  error?: string | null;
 }
 
 const initialState: ProductsState = {
   products: [],
-  loading: false,
+  status: "idle",
+  error: null,
 };
 
 const api = "https://fakestoreapi.com/products";
@@ -26,10 +28,19 @@ const productSlice = createSlice({
   name: "products",
   initialState,
   reducers: {},
-  extraReducers(builder) {
-    builder.addCase(fetchProducts.fulfilled, (state, action) => {
-      state.products = action.payload;
-    });
+  extraReducers: (builder) => {
+    builder
+      .addCase(fetchProducts.pending, (state) => {
+        state.status = "loading";
+      })
+      .addCase(fetchProducts.fulfilled, (state, action) => {
+        state.status = "succeeded";
+        state.products = action.payload;
+      })
+      .addCase(fetchProducts.rejected, (state, action) => {
+        state.status = "failed";
+        state.error = action.error.message || "Failed to load products";
+      });
   },
 });
 
