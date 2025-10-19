@@ -1,6 +1,6 @@
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
-import { fetchUsers } from "../store/userSlice";
+import { fetchUsers } from "../store/slice/userSlice";
 
 const Users = () => {
   const users = useAppSelector((state) => state.users.users);

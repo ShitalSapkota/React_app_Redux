@@ -1,7 +1,7 @@
 import { Card, CardContent, Grid, Typography } from "@mui/material";
 import { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
-import { fetchProducts } from "../store/productSlice";
+import { fetchProducts } from "../store/slice/productSlice";
 
 const Products = () => {
   const products = useAppSelector((state) => state.products.products);

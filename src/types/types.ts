@@ -12,3 +12,9 @@ export interface User {
   name: string;
   email: string;
 }
+
+
+// Extends Product with quantity for the cart
+export interface CartItem extends Product {
+  quantity: number;
+}
