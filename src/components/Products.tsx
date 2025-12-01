@@ -9,9 +9,9 @@ import {
   CircularProgress,
   Container,
   Divider,
-  Grid,
   Typography,
 } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import { useEffect } from "react";
 import { useAppSelector, useAppDispatch } from "../hooks/hooks";
 import { addToCart } from "../store/slice/cartSlice";
