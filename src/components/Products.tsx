@@ -72,11 +72,6 @@ const Products = () => {
       <Grid container spacing={3} display="flex" justifyContent="center">
         {products.map((product) => (
           <Grid
-            item
-            xs={12}
-            sm={6}
-            md={4}
-            lg={3}
             key={product.id}
             width="400px"
           >
