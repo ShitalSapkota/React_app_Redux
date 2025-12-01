@@ -7,9 +7,9 @@ import {
   Chip,
   Container,
   Divider,
-  Grid,
   Typography,
 } from "@mui/material";
+import Grid from "@mui/material/Grid";
 import { useAppDispatch, useAppSelector } from "../hooks/hooks";
 import { clearCart, removeFromCart } from "../store/slice/cartSlice";
 import type { RootState } from "../store/store";
@@ -77,7 +77,7 @@ const Cart = () => {
       {/* Cart Items */}
       <Grid container spacing={3}>
         {cart.map((product) => (
-          <Grid item xs={12} key={product.id}>
+          <Grid key={product.id}>
             <Card
               elevation={2}
               sx={{
