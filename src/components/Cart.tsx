@@ -10,10 +10,10 @@ import {
   Typography,
 } from "@mui/material";
 import Grid from "@mui/material/Grid";
-import { useAppDispatch, useAppSelector } from "../hooks/hooks";
-import { clearCart, removeFromCart } from "../store/slice/cartSlice";
-import type { RootState } from "../store/store";
-import type { CartItem } from "../types/types";
+import { useAppDispatch, useAppSelector } from "@/hooks/hooks";
+import { clearCart, removeFromCart } from "@/store/slice/cartSlice";
+import type { RootState } from "@/store/store";
+import type { CartItem } from "@/types/types";
 
 const Cart = () => {
   const cart = useAppSelector((state: RootState) => state.cart.cart);
